@@ -1,9 +1,7 @@
 
 package gallinas;
 
-import java.util.Date;
 import java.util.TimerTask;
-import java.util.Timer;
 
 /**
  *
@@ -18,20 +16,8 @@ public class Temporizador {
                 @Override
                 public void run() {
                     tiempo++;
-                    //Si han pasado 4 segundos se hace esto
-                    if (tiempo % 4 ==0) {
-                        //System.out.println("Han pasado 4 segundos");
-                    }
-                    //Si han pasado 10 segundos se hace esto
-                    if (tiempo % 10 ==0) {
-                        //System.out.println("Han pasado 10 segundods");
-                    }
-                    //Si han pasado 20 segundos se hace esto
-                    if (tiempo % 20 == 0) {
-                        //System.out.println("Han pasado 20 segundos");
-                    }
-                    //Cuando ha llegado a 21 segundos, la simulacion se para
-                    if (tiempo==21) {
+                    //Cuando ha llegado a 3600 segundos, la simulacion se para
+                    if (tiempo==3600) {
                         timer.cancel();
                     }
                 }

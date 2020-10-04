@@ -23,9 +23,10 @@ public class Hilo2 extends Thread{
         BufferedWriter bw=null;
             
         try {
-            escritorArchivo = new FileWriter(archivo);
+            escritorArchivo = new FileWriter(archivo,true);
             bw = new BufferedWriter(escritorArchivo);
             bw.write(mensaje);
+            bw.write("\n");
             
         } catch (IOException e) {
             System.out.println("Error en "+e);
