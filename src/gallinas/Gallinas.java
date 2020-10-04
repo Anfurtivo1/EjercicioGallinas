@@ -17,6 +17,7 @@ public class Gallinas {
                 double porcentaje;
                 Temporizador tiempo = new Temporizador();
                 Hilo1 hilo1;
+                Hilo2 hilo2;
 		
 		for (int i = 0; i < corral.length; i++) {
 			for (int j = 0; j < corral[i].length; j++) {
@@ -55,6 +56,12 @@ public class Gallinas {
                 
             hilo1= new Hilo1(corral);
             hilo1.start();
+                try {
+                    hilo1.join();
+                } catch (InterruptedException e) {
+                    System.out.println("Error en "+e);
+                }
+                
                 
         }
 

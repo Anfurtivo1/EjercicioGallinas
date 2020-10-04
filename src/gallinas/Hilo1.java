@@ -19,21 +19,25 @@ public class Hilo1 extends Thread{
         return corral;
     }
 
-    public void setCorral(Gallina[][] corral) {
-        this.corral = corral;
-    }
-
     @Override
     public void run(){
+        Hilo2 hilo2;
         String todo;
         System.out.println("");
         for (int i = 0; i < corral.length; i++) {
             for (int j = 0; j < corral[i].length; j++) {
+                try {
                     todo=("Encontrados "+corral[i][j].getHuevosPuestos()+" en la posicion "+i+"-"+j);
                     System.out.println(todo);
-                try {
-                    Thread.sleep(1000);
-                } catch (Exception e) {
+                    hilo2 = new Hilo2(todo);
+                    hilo2.start();
+                    hilo2.join();
+                    try {
+                        Thread.sleep(1000);
+                    } catch (Exception e) {
+                        System.out.println("Error en "+e);
+                    }
+                } catch (InterruptedException e) {
                     System.out.println("Error en "+e);
                 }
             }
